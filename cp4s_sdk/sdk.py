@@ -4,7 +4,7 @@
 """ entrypoint for cp4s-sdk Python Module """
 
 # Python std lib deps
-from subparsers.soar_subparser import SoarSubParser
+from cp4s_sdk.subparsers.soar_subparser import SoarSubParser
 from argparse import ArgumentParser, HelpFormatter
 import argparse
 
@@ -29,9 +29,7 @@ root_sp = app.add_subparsers(dest='product')
 
 # Add the cases parser
 cases_subparser = SoarSubParser()
-cases_subparser.register_subparser(kwargs={
-    "parent_parser": root_sp
-})
+cases_subparser.register_subparser(parent_parser=root_sp)
 
 # TODO: Exploring looping instantiation
 # products = [CasesSubParser]

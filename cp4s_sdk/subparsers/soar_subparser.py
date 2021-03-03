@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # pragma pylint: disable=unused-argument, no-self-use
 # (c) Copyright Ryan Gordon. 2021. All Rights Reserved.
-from i_subparser import ISubParser
+from .i_subparser import ISubParser
 from resilient_sdk.app import get_main_app_parser, get_main_app_sub_parser
 from resilient_sdk.util.sdk_argparse import SDKArgHelpFormatter
 from resilient_sdk.cmds import CmdDocgen, CmdCodegen, CmdClone, CmdExtract
@@ -27,7 +27,7 @@ class SoarSubParser(ISubParser):
 
     def register_subparser(self, *args, **kwargs):
         if not kwargs.get("parent_parser", False):
-            assert ValueError(
+            raise ValueError(
                 "No Parent Parser was found in kwargs, this is needed to ensure we can attach the {} commands".format(self.product))
 
         parent = kwargs.get("parent_parser")
