@@ -5,6 +5,8 @@
 
 # Python std lib deps
 from cp4s_sdk.subparsers.soar_subparser import SoarSubParser
+from cp4s_sdk.subparsers.car_subparser import CarSubParser
+
 from argparse import ArgumentParser, HelpFormatter
 import argparse
 
@@ -31,6 +33,9 @@ root_sp = app.add_subparsers(dest='product')
 cases_subparser = SoarSubParser()
 cases_subparser.register_subparser(parent_parser=root_sp)
 
+car_subparser = CarSubParser()
+car_subparser.register_subparser(parent_parser=root_sp)
+
 # TODO: Exploring looping instantiation
 # products = [CasesSubParser]
 # parser_dict = dict()
@@ -46,5 +51,7 @@ args = app.parse_args()
 # each product is defined as a class with common methods we can depend on here
 if args.product == 'soar':
     cases_subparser.handle_command_invocation(product_args=args)
+if args.product == 'car':
+    car_subparser.handle_command_invocation(product_args=args)
 else:
     app.print_help()
