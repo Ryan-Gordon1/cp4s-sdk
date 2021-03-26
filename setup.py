@@ -14,7 +14,13 @@ setup(
     setup_requires=[],
 
     # Runtime Dependencies
-    install_requires=[],
+    install_requires=[
+        'cp4s-connector-sdk @ git+https://github.com/Ryan-Gordon1/cp4s-connector-sdk.git',
+        'resilient_sdk'
+    ],
+    dependency_links = [
+    "git+https://github.com/Ryan-Gordon1/cp4s-connector-sdk.git#egg=cp4s-connector-sdk"    
+    ],
     # Add command line: cp4s-sdk
     entry_points={
         "console_scripts": ["cp4s-sdk=cp4s_sdk.sdk:main"]
