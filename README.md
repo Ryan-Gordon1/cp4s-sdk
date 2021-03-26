@@ -33,8 +33,10 @@ cp4s-sdk connector codegen -p my_new_connector
 cp4s-sdk connector codegen -p my_new_connector --connectortype UDI
 ```
 ### Goals
-[X]Implement a basic structure that is extensible for others
-[X]Begin working on integrating the resilient-sdk; the first citizen of this project
-[]Work on implementing QRadar App SDK (Blocked: No way to programatically download SDK)
-[X]Integrate the Connector SDK
-[]CI/CD system 
+
+
+- [:heavy_check_mark:]Implement a basic structure that is extensible for others  
+- [:heavy_check_mark:]Begin working on integrating the resilient-sdk; the first citizen of this project  
+- []Work on implementing QRadar App SDK (Blocked: No way to programatically download SDK)  
+- [:heavy_check_mark:]Integrate the Connector SDK  
+- []CI/CD system  
