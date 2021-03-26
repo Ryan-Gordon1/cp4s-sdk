@@ -16,16 +16,25 @@ This SDK is designed such that each product has its own section where it may exp
 #### Install locally: 
 
 #### Usage Examples:
+##### SOAR
 ```bash
-cp4s-sdk cases codegen <-p package_name> <-m message_destination>
+cp4s-sdk soar codegen <-p package_name> <-m message_destination>
 ```
 
 ```bash
-cp4s-sdk cases clone <-w workflow_name cloned_workflow_name> 
+cp4s-sdk soar clone <-w workflow_name cloned_workflow_name> 
+```
+##### Connectors (CAR, UDI)
+```bash
+cp4s-sdk connector codegen -p my_new_connector
 ```
 
+```bash
+cp4s-sdk connector codegen -p my_new_connector --connectortype UDI
+```
 ### Goals
-+ Implement a basic structure that is extensible for others
-+ Begin working on integrating the resilient-sdk; the first citizen of this project
-+ Work on implementing QRadar App SDK (Blocked: No way to programatically download SDK)
-+ CI/CD system 
+[X]Implement a basic structure that is extensible for others
+[X]Begin working on integrating the resilient-sdk; the first citizen of this project
+[]Work on implementing QRadar App SDK (Blocked: No way to programatically download SDK)
+[X]Integrate the Connector SDK
+[]CI/CD system 
