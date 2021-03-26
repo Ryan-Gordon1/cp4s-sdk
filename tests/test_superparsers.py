@@ -1,6 +1,8 @@
 
 from cp4s_sdk.subparsers.i_subparser import ISubParser
 from cp4s_sdk.subparsers.soar_subparser import SoarSubParser
+from cp4s_sdk.subparsers.connector_subparser import ConnectorSubParser
+
 from argparse import ArgumentParser, HelpFormatter
 import argparse
 
@@ -60,4 +62,34 @@ class TestSoarSubparser():
 
         with pytest.raises(ValueError):
             p.register_subparser(parent_parser=None)
+        
+
+class TestConnectorSubparser():
+
+    def test_soar_product_name(self):
+        c = ConnectorSubParser()
+        assert c.product == "connector"
+
+    def test_initial_status(self):
+        c = ConnectorSubParser()
+        assert not c.is_registered()
+    
+    def test_registration_status(self):
+        app = argparse.ArgumentParser(description="MOCKED CLI")
+        # Add the top level parser; this will be purely navigational
+        root_sp = app.add_subparsers(dest='product')
+        c = ConnectorSubParser()
+        c.register_subparser(parent_parser=root_sp)
+        assert c.is_registered()
+
+    def test_registration_without_parent(self):
+        app = argparse.ArgumentParser(description="MOCKED CLI")
+        # Add the top level parser; this will be purely navigational
+        root_sp = app.add_subparsers(dest='product')
+        c = ConnectorSubParser()
+        with pytest.raises(ValueError):
+            c.register_subparser()
+
+        with pytest.raises(ValueError):
+            c.register_subparser(parent_parser=None)
         
