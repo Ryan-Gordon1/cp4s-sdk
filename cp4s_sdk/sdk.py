@@ -7,6 +7,8 @@
 from cp4s_sdk.subparsers.soar_subparser import SoarSubParser
 from cp4s_sdk.subparsers.car_subparser import CarSubParser
 from cp4s_sdk.subparsers.connector_subparser import ConnectorSubParser
+from cp4s_sdk.subparsers.appx_subparser import AppExchangeSubParser
+from cp4s_sdk.subparsers.qradar_subparser import QRadarSubParser
 
 from argparse import ArgumentParser, HelpFormatter
 import argparse
@@ -32,12 +34,17 @@ def main():
     app = argparse.ArgumentParser(description=DESCRIPTION)
     # Add the top level parser; this will be purely navigational
     root_sp = app.add_subparsers(dest='product')
+    app._positionals.title = 'Available product SDKs, tools and Command Line Interfaces'
 
     # Add the cases parser
     cases_subparser = SoarSubParser()
     cases_subparser.register_subparser(parent_parser=root_sp)
     connector_subparser = ConnectorSubParser()
     connector_subparser.register_subparser(parent_parser=root_sp)
+    qradar_subparser = QRadarSubParser()
+    qradar_subparser.register_subparser(parent_parser=root_sp)
+    appx_subparser = AppExchangeSubParser()
+    appx_subparser.register_subparser(parent_parser=root_sp)
 
     # TODO: Exploring looping instantiation
     # products = [CasesSubParser]
@@ -56,5 +63,9 @@ def main():
         cases_subparser.handle_command_invocation(product_args=args)
     elif args.product == 'connector':
         connector_subparser.handle_command_invocation(product_args=args)
+    elif args.product == 'qradar':
+        qradar_subparser.handle_command_invocation(product_args=args)
+    elif args.product == 'appx':
+        appx_subparser.handle_command_invocation(product_args=args)
     else:
         app.print_help()
