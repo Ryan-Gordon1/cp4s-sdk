@@ -1,5 +1,5 @@
 # cp4s-sdk
-![logo](assets/IBM_SECURITY_lockup_pos_RGB.png)
+![logo](/assets/IBM_Security.png)
 A Software Development Kit (SDK), command line tools (CLI) and helper modules all under one roof to streamline the developer ecosystem of Cloud Pak for Security
 
 ## Overview
