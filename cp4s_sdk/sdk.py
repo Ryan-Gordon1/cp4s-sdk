@@ -5,18 +5,15 @@
 
 # Python std lib deps
 from cp4s_sdk.subparsers.soar_subparser import SoarSubParser
-from cp4s_sdk.subparsers.car_subparser import CarSubParser
 from cp4s_sdk.subparsers.connector_subparser import ConnectorSubParser
 from cp4s_sdk.subparsers.appx_subparser import AppExchangeSubParser
 from cp4s_sdk.subparsers.qradar_subparser import QRadarSubParser
 
-from argparse import ArgumentParser, HelpFormatter
 import argparse
 
-DESCRIPTION = """The Cloud Pak for Security (CP4S) SDK 
+DESCRIPTION = """The Cloud Pak for Security (CP4S) SDK
 provides a gateway to developer focused tools and functionalities for
 each of the products under the Ecosystem.
-
 The cp4s-sdk provides a streamlined interface to all
 of the packages maintained by each of the product teams in
 the Cloud Pak.
@@ -30,6 +27,8 @@ or
 \n
 $cp4s-sdk qradar -h
 """
+
+
 def main():
     app = argparse.ArgumentParser(description=DESCRIPTION)
     # Add the top level parser; this will be purely navigational

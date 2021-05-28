@@ -59,7 +59,7 @@ class QRadarCreateCmd(BaseCmd):
                     u"'{0}' is not a valid package name".format(args.package))
 
             ###
-            # Attempt to upload to the AppX 
+            # Attempt to upload to the AppX
             ###
             LOG.info("%s %s" %
                      ("QRadarCreateCmd run finished for ", args.package))
