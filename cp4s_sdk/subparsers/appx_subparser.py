@@ -2,9 +2,10 @@
 # pragma pylint: disable=unused-argument, no-self-use
 # (c) Copyright Ryan Gordon. 2021. All Rights Reserved.
 from .i_subparser import ISubParser
-from resilient_sdk.app import get_main_app_parser, get_main_app_sub_parser
+from resilient_sdk.app import get_main_app_sub_parser
 from resilient_sdk.util.sdk_argparse import SDKArgHelpFormatter
 from cp4s_sdk.cmds.appx.appx_publish import AppXPublishCmd
+
 
 class AppExchangeSubParser(ISubParser):
     """AppExchangeSubParser is an ArgumentParser
@@ -23,7 +24,8 @@ class AppExchangeSubParser(ISubParser):
     def register_subparser(self, *args, **kwargs):
         if not kwargs.get("parent_parser", False):
             raise ValueError(
-                "No Parent Parser was found in kwargs, this is needed to ensure we can attach the {} commands".format(self.product))
+                "No Parent Parser was found in kwargs, this is needed to ensure we can attach the {} commands".format(
+                    self.product))
 
         parent = kwargs.get("parent_parser")
         # Top level product name

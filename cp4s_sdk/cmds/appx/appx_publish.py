@@ -5,7 +5,6 @@ import os
 from resilient import ensure_unicode
 # Resilient SDK imports to reuse code and achieve a consistency across the SDKs
 from resilient_sdk.cmds.base_cmd import BaseCmd
-from resilient_sdk.cmds.codegen import CmdCodegen
 from resilient_sdk.util import sdk_helpers
 from resilient_sdk.util.sdk_exception import SDKException
 
@@ -26,7 +25,8 @@ class AppXPublishCmd(BaseCmd):
     """
 
     CMD_NAME = "publish"
-    CMD_HELP = "Attempt to publish a package to the App Exchange. The publish process will either start a new App Submission or begin an Update of an App Submission"
+    CMD_HELP = """Attempt to publish a package to the App Exchange.
+                  The publish process will either start a new App Submission or begin an Update of an App Submission"""
     CMD_USAGE = """
     $ cp4s-sdk appx publish
     $ cp4s-sdk appx publish -p <package_name>

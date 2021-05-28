@@ -18,8 +18,8 @@ setup(
         'cp4s-connector-sdk @ git+https://github.com/Ryan-Gordon1/cp4s-connector-sdk.git',
         'resilient_sdk'
     ],
-    dependency_links = [
-    "git+https://github.com/Ryan-Gordon1/cp4s-connector-sdk.git#egg=cp4s-connector-sdk"    
+    dependency_links=[
+        "git+https://github.com/Ryan-Gordon1/cp4s-connector-sdk.git#egg=cp4s-connector-sdk"
     ],
     # Add command line: cp4s-sdk
     entry_points={
